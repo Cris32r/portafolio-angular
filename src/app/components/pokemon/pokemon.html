@@ -1,0 +1,22 @@
+<div class="container mt-5 text-center">
+  <h2>Pokémon API</h2>
+
+  <input 
+    type="text" 
+    [(ngModel)]="nombre" 
+    placeholder="Escribe un Pokémon" 
+    class="form-control w-50 mx-auto mt-3"
+  >
+  <button class="btn btn-primary mt-3" (click)="buscarPokemon()">Buscar</button>
+
+  <div *ngIf="pokemon" class="mt-4">
+    <h3>{{ pokemon.name | titlecase }}</h3>
+    <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+    <p><strong>Altura:</strong> {{ pokemon.height }}</p>
+    <p><strong>Peso:</strong> {{ pokemon.weight }}</p>
+  </div>
+
+  <div *ngIf="busco && !pokemon">
+    <p class="text-danger mt-4">No se encontró ese Pokémon.</p>
+  </div>
+</div>
